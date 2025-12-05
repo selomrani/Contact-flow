@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Flow - Hero Section</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -23,11 +28,16 @@
         <div class="carousel-inner">
             
             <div class="carousel-item active">
-                <div class="hero-overlay"></div> <img src="img/AAAABcuF-ASdk8ggKxXR_kgnbvX1BAotwohyNYWx_jn7ixfCdiToeoYBnF_pXm8sLOqG-yy9Rgu4dUtjKdaiX9QlT4j-tUKRmBouW4zz.jpg" alt="First slide">
+                <div class="hero-overlay"></div> 
+                <img src="img/AAAABcuF-ASdk8ggKxXR_kgnbvX1BAotwohyNYWx_jn7ixfCdiToeoYBnF_pXm8sLOqG-yy9Rgu4dUtjKdaiX9QlT4j-tUKRmBouW4zz.jpg" alt="First slide">
                 <div class="carousel-caption d-none d-md-block">
-                    <h1 class="display-4 fw-bold">Welcome to Contact Flow</h1>
-                    <p class="lead">Streamline your communication effortlessly.</p>
-                    <a href="#contact" class="btn btn-primary btn-lg mt-3">Get Started</a>
+                    <h1 class="display-3 fw-bold mb-3">Welcome to Contact Flow</h1>
+                    <p class="lead mb-4">Streamline your communication effortlessly.</p>
+                    
+                    <div class="hero-btns">
+                        <a href="#contact" class="btn btn-hero-primary">Get Started</a>
+                        <a href="#about" class="btn btn-hero-outline">About Us</a>
+                    </div>
                 </div>
             </div>
 
@@ -35,9 +45,13 @@
                 <div class="hero-overlay"></div>
                 <img src="img/87240dbd-5c19-11f0-b655-025327c09033.avif" alt="Second slide">
                 <div class="carousel-caption d-none d-md-block">
-                    <h1 class="display-4 fw-bold">Connect Faster</h1>
-                    <p class="lead">Our tools bridge the gap between you and your clients.</p>
-                    <button class="btn btn-outline-light btn-lg mt-3">Learn More</button>
+                    <h1 class="display-3 fw-bold mb-3">Connect Faster</h1>
+                    <p class="lead mb-4">Our tools bridge the gap between you and your clients.</p>
+                    
+                    <div class="hero-btns">
+                        <a href="#contact" class="btn btn-hero-primary">Get Started</a>
+                        <a href="#about" class="btn btn-hero-outline">About Us</a>
+                    </div>
                 </div>
             </div>
 
@@ -45,8 +59,13 @@
                 <div class="hero-overlay"></div>
                 <img src="img/l-intro-1725389701.jpg" alt="Third slide">
                 <div class="carousel-caption d-none d-md-block">
-                    <h1 class="display-4 fw-bold">Secure & Reliable</h1>
-                    <p class="lead">Trust us to handle your data with care.</p>
+                    <h1 class="display-3 fw-bold mb-3">Secure & Reliable</h1>
+                    <p class="lead mb-4">Trust us to handle your data with care.</p>
+                    
+                    <div class="hero-btns">
+                        <a href="#contact" class="btn btn-hero-primary">Get Started</a>
+                        <a href="#about" class="btn btn-hero-outline">About Us</a>
+                    </div>
                 </div>
             </div>
 
@@ -61,13 +80,7 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-
-    <div class="container my-5">
-        <h2>Rest of page content...</h2>
-    </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
 </body>
-
 </html>

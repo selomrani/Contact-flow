@@ -1,39 +1,94 @@
+/* Apply Google Font */
 body {
+    font-family: 'Poppins', sans-serif;
     background: linear-gradient(60deg, #051937 0%, #004d7a 50%, #008793 75%, #00bf72 100%);
 }
 
 /* HERO SPECIFIC STYLES */
 
-/* 1. Make the carousel take up the full screen height */
 .hero-section,
 .carousel-item {
     height: 100vh;
     min-height: 500px;
-    /* Prevent it from getting too short on mobile */
 }
 
-/* 2. Ensure images cover the area without distorting */
 .carousel-item img {
     object-fit: cover;
     height: 100%;
     width: 100%;
 }
 
-/* 3. Dark Overlay to make text pop */
 .hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    /* Black with 40% opacity */
+    background: rgba(0, 0, 0, 0.5); /* Slightly darker for better text contrast */
     z-index: 1;
 }
 
-/* 4. Bring captions above the overlay */
 .carousel-caption {
     z-index: 2;
-    bottom: 30%;
-    /* Move text up slightly to be more central */
+    bottom: 35%; /* Moved up slightly */
+}
+
+/* Typography Enhancements */
+.carousel-caption h1 {
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    letter-spacing: 1px;
+}
+
+.carousel-caption p {
+    font-weight: 300;
+    font-size: 1.4rem;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* CUSTOM BUTTONS */
+.hero-btns {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between buttons */
+}
+
+/* Common button properties */
+.btn-hero-primary,
+.btn-hero-outline {
+    padding: 12px 35px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 50px; /* Rounded Pill Shape */
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+}
+
+/* "Get Started" Button Styles */
+.btn-hero-primary {
+    background-color: #00bf72; /* Matches your gradient end color */
+    color: white;
+    border: 2px solid #00bf72;
+}
+
+.btn-hero-primary:hover {
+    background-color: #008793;
+    border-color: #008793;
+    color: white;
+    transform: translateY(-3px); /* Lifts up slightly on hover */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* "About Us" Button Styles */
+.btn-hero-outline {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-hero-outline:hover {
+    background-color: white;
+    color: #051937; /* Dark blue text on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
