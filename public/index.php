@@ -37,7 +37,7 @@
                     <a class="nav-link" href="#about">About</a>
                 </li>
                 <li class="nav-item ms-lg-2">
-                    <a href="login.php" class="btn btn-nav-login">Login</a>
+                    <a href="assets/php/login.php" class="btn btn-nav-login">Login</a>
                 </li>
             </ul>
         </div>
