@@ -11,17 +11,25 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background : url(../img/slide1.png) no-repeat;
+    /* background : url(../img/slide1.png) no-repeat; */
+    background: red;
     background-size: cover;
     background-position: center;
 }
 .container{
     width: 420px;
-    background : transparent;
+    /* 1. Slight tint for better glass effect */
+    background: rgba(255, 255, 255, 0.1);
     color: #fff;
     border-radius: 10px;
     padding: 30px 40px;
-    border: 1px solid #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Optional: softer border */
+    
+    /* 2. Added webkit prefix for compatibility */
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional: adds depth */
 }
 .container h1{
     font-size: 36px;
@@ -54,16 +62,6 @@ body{
     top: 50px;
     transform: translateY(-170%);
     font-size: 20px;
-}
-.container .remember{
-display: contents;
-justify-content: space-between;
-font-size: 14.5px;
-margin : -15px 0 15px;
-}
-.remember label input{
-    accent-color: #fff;
-    margin-right: 3px;
 }
 .container .btn{
     width : 100%;
