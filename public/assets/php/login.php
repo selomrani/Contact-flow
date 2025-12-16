@@ -2,7 +2,6 @@
 // $user_data = check_login($db_connect);
 require_once __DIR__ . '/../../../src/config/connectdb.php';
 require_once __DIR__ . '/../../../src/functions.php'; 
-
 $error_message = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -19,7 +18,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($user_data && password_verify($password, $user_data['password'])) {
         session_start();
-        // header("location : home.php");
+        $_SESSION['user_id'] = $user_data['user_id'];
+        header("Location: home.php");
+        exit();
     } else {
         $error_message = "Invalid username or password.";
     }

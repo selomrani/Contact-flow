@@ -2,7 +2,7 @@
 session_start();
 require_once __DIR__ . '/../../../src/config/connectdb.php';
 require_once __DIR__ . '/../../../src/functions.php';
-// $user_data = check_login($db_connect);
+$user_data = check_login($db_connect);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,7 +67,7 @@ require_once __DIR__ . '/../../../src/functions.php';
         
         <div class="d-flex justify-content-between align-items-end mb-5">
             <div>
-                <h2 class="fw-bold m-0">Welcome back, User</h2>
+                <h2 class="fw-bold m-0">Welcome back, <?php echo"$user_data[username]" ?>  </h2>
                 <p class="text-secondary m-0 mt-1">Here is your contact list overview.</p>
             </div>
             <button class="btn btn-theme d-flex align-items-center gap-2 px-4 py-2">
