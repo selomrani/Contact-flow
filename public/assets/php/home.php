@@ -3,7 +3,11 @@ session_start();
 require_once __DIR__ . '/../../../src/config/connectdb.php';
 require_once __DIR__ . '/../../../src/functions.php';
 $user_data = check_login($db_connect);
-$error_message ="";
+$error_message = "";
+$query = "SELECT * FROM contacts WHERE user_id = $user_data[user_id]";
+$stmt = $db_connect->prepare($query);
+$stmt->execute();
+$user_contacts = $stmt->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,26 +22,21 @@ $error_message ="";
 </head>
 
 <body>
-
     <div class="d-flex min-vh-100">
-
         <aside class="sidebar d-flex flex-column flex-shrink-0 p-4">
             <a href="/" class="d-flex align-items-center mb-5 link-dark text-decoration-none">
                 <i class="bi bi-circle-half text-theme fs-3 me-2"></i>
                 <span class="fs-4 fw-bold text-theme">Connect Flow</span>
             </a>
-
             <div class="profile-section mb-4">
                 <div class="d-inline-block">
                     <img src="../img/user-solid-full.svg" alt="User" class="profile-avatar">
                 </div>
-
                 <h5 class="fw-bold mb-1"><?php echo "$user_data[username]" ?></h5>
                 <p class="text-secondary small mb-3"><?php echo "$user_data[email]" ?></p>
                 <div class="d-inline-block bg-light text-secondary border rounded-pill px-3 py-2 mb-3 small fw-medium">
                     <i class="bi bi-calendar-check me-1"></i> <?php echo "$user_data[creation_date]" ?>
                 </div>
-
                 <div class="row g-2 mt-2">
                     <div class="col-12">
                         <div class="stat-box">
@@ -76,9 +75,7 @@ $error_message ="";
                 <button class="btn btn-theme d-flex align-items-center gap-2 px-4 py-2" data-bs-toggle="modal" data-bs-target="#AddNewContact">
                     <i class="bi bi-person-plus"></i> Add New Contact
                 </button>
-
             </div>
-
             <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
                 <div class="d-flex gap-2">
                     <div class="dropdown">
@@ -92,13 +89,11 @@ $error_message ="";
                         </ul>
                     </div>
                 </div>
-
                 <div class="input-group" style="width: 320px;">
                     <span class="input-group-text bg-white border-end-0"><i class="bi bi-search text-secondary"></i></span>
                     <input type="text" class="form-control border-start-0 ps-0 search-input shadow-none" placeholder="Search contacts...">
                 </div>
             </div>
-
             <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
                 <div class="card-body p-0">
                     <table class="table table-hover table-custom mb-0">
@@ -111,6 +106,7 @@ $error_message ="";
                             </tr>
                         </thead>
                         <tbody>
+                            <?php  ?>
                             <tr class="contact-row">
                                 <td class="ps-4">
                                     <div class="d-flex align-items-center">
@@ -120,21 +116,6 @@ $error_message ="";
                                 </td>
                                 <td class="text-secondary">(907) 532-3240</td>
                                 <td class="text-secondary">ambredu21@gmail.com</td>
-                                <td class="text-end pe-4">
-                                    <button class="btn btn-sm btn-outline-theme me-2 px-3"><i class="bi bi-pencil"></i> Edit</button>
-                                    <button class="btn btn-sm btn-outline-danger px-3"><i class="bi bi-trash"></i> Delete</button>
-                                </td>
-                            </tr>
-
-                            <tr class="contact-row bg-light">
-                                <td class="ps-4">
-                                    <div class="d-flex align-items-center">
-                                        <img src="../img/user-solid-full.svg" class="avatar-small me-3" alt="">
-                                        <span class="fw-semibold">Andrea Taylor</span>
-                                    </div>
-                                </td>
-                                <td class="text-secondary">(615) 271-4371</td>
-                                <td class="text-secondary">andreataylor@gmail.com</td>
                                 <td class="text-end pe-4">
                                     <button class="btn btn-sm btn-outline-theme me-2 px-3"><i class="bi bi-pencil"></i> Edit</button>
                                     <button class="btn btn-sm btn-outline-danger px-3"><i class="bi bi-trash"></i> Delete</button>
