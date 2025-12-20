@@ -1,29 +1,23 @@
 <?php
-session_start();
 // $user_data = check_login($db_connect);
 require_once __DIR__ . '/../../../src/config/connectdb.php';
 require_once __DIR__ . '/../../../src/functions.php'; 
-
 $error_message = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = mysqli_real_escape_string($connection, $_POST["username"]);
-    $password = mysqli_real_escape_string($connection, $_POST["password"]);
-
-    $query = "SELECT * FROM users WHERE username = '$username' limit 1";
-    $result = mysqli_query($connection, $query);
-
-    if ($result && mysqli_num_rows($result) > 0) {
-        $user_data = mysqli_fetch_assoc($result);
-        
-        if ($user_data['password'] === $password) {
-            $_SESSION['user_id'] = $user_data['user_id'];
-            header("Location: home.php");
-            die;
-        }
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+    $query = $db_connect->prepare("SELECT * FROM users WHERE username = :username LIMIT 1");
+    $query->execute(['username' => $username]);
+    $user_data = $query->fetch(PDO::FETCH_ASSOC);
+    if ($user_data && password_verify($password, $user_data['password'])) {
+        session_start();
+        $_SESSION['user_id'] = $user_data['user_id'];
+        header("Location: home.php");
+        exit();
+    } else {
+        $error_message = "Invalid username or password.";
     }
-    
-    $error_message = "Wrong username or password!";
 }
 ?>
 <!DOCTYPE html>
