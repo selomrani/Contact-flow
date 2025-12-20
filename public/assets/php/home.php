@@ -11,6 +11,7 @@ $user_contacts = $stmt->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -116,8 +117,17 @@ $user_contacts = $stmt->fetchAll();
                                     <td class="text-secondary"><?php echo htmlspecialchars($contact['phone_number']); ?></td>
                                     <td class="text-secondary"><?php echo htmlspecialchars($contact['email']); ?></td>
                                     <td class="text-end pe-4">
-                                        <button class="btn btn-sm btn-outline-theme me-2 px-3"><i class="bi bi-pencil"></i> Edit</button>
-                                        <button class="btn btn-sm btn-outline-danger px-3"><i class="bi bi-trash"></i> Delete</button>
+                                        <div class="d-flex justify-content-end align-items-center gap-2">
+                                            <button class="btn btn-sm btn-outline-theme px-3">
+                                                <i class="bi bi-pencil"></i> Edit
+                                            </button>
+                                            <form action="./Contacts_crud/delete.php" method="post" class="m-0">
+                                                <input type="hidden" name="delete" value="<?php echo htmlspecialchars($contact['id']); ?>">
+                                                <button type="submit" class="btn btn-sm btn-outline-danger px-3">
+                                                    <i class="bi bi-trash"></i> Delete
+                                                </button>
+                                            </form>
+                                        </div>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
